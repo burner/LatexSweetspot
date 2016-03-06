@@ -2,3 +2,4 @@
 \newacronym{csv}{csv}{comma separated values}
 \newacronym{xml}{XML}{extensible markup language}
 \newacronym{ps}{PhySt}{physical structure}
+\newacronym{ls}{LogSt}{logical structure}

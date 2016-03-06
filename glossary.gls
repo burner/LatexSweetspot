@@ -1,5 +1,5 @@
-\newglossaryentry{gdc}
+\newglossaryentry{pdflatex}
 {
-  name=GNU D Compiler,
-  description={A D Compiler using the GCC Backend.}
+  name=pdflatex,
+  description={\LaTeX that creates a \.pdf of the input \.tex files.}
 }
