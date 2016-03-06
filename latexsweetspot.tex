@@ -4,7 +4,6 @@
 \usepackage{listings}
 \usepackage{sweetspot}
 \usepackage{subfiles}
-\usepackage{subpackages}
 
 \lstdefinelanguage{d}{
 	morekeywords={abstract,alias,align,asm,assert,auto,body,bool,break,byte,
@@ -87,66 +86,5 @@
 
 \subfile{introduction}
 
-\chapter{Getting Started}
-In this book the D standard library Phobos is used to create a replacement for
-the XML facilities given in std.xml;
-Performance is a crucial part when it comes to the development of an XML parser.
-Nobody wants to use a slow XML parser.
-To keep an eye on the performance of the parser we need test data to
-benchmark.
-Good test data is hard to come by, therefore we will at least partially,
-create our own.
-This listing allows us to get an idea of what data we can accept.
-We will use std.csv to parse that data and then use this data to generate
-\G{xml} files of different sizes.
-\lstinputlisting[label=lst:csvexample1_1,caption={struct to store csv data in.},lastline=14]{csvexample1.d}
-The lines \Rl{lst:csvexample1_beginmember} to \Rl{lst:csvexample1_endmember}
-of Listing \Rl{lst:csvexample1_1} show the names of the values present in the csv
-file.
-\G{ctfe}
-
-%
-% APPENDIX
-%
-
-\chapter*{Appendix}
-\appendix
-\phantomsection \label{appendix}
-\addcontentsline{toc}{chapter}{Appendix}
-\cleardoublepage
-
-\phantomsection\label{glossary}
-\addcontentsline{toc}{section}{Glossary}
-\printnoidxglossary
-
-\cleardoublepage
-\phantomsection\label{acronyms}
-\addcontentsline{toc}{section}{Acronyms}
-\printnoidxglossary[type=acronym]
-
-\cleardoublepage
-\phantomsection\label{figures}
-\addcontentsline{toc}{section}{Figures}
-\listoffigures
- 
-\cleardoublepage
-\phantomsection\label{tables}
-\addcontentsline{toc}{section}{Tables}
-\listoftables
-
-\cleardoublepage
-\phantomsection\label{listings}
-\addcontentsline{toc}{section}{Listings}
-\lstlistoflistings
-
-\cleardoublepage
-\phantomsection\label{bibliography}
-\addcontentsline{toc}{section}{Bibliography}
-%\bibliographystyle{alpha}
-%\bibliography{biblio}
-\printbibliography
-
-%\chapter*{Appearances of Authors}
-%\printauthorindex
-
+\subfile{appendix}
 \end{document}
