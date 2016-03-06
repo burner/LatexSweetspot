@@ -1,3 +1,4 @@
 \newacronym{ctfe}{CTFE}{compile time function execution}
 \newacronym{csv}{csv}{comma separated values}
 \newacronym{xml}{XML}{extensible markup language}
+\newacronym{ps}{PhySt}{physical structure}
