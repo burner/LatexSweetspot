@@ -1,29 +1,31 @@
 \documentclass[a4paper,openright,BCOR20mm]{scrbook}
 
-\input{preamble}
+%\input{preamble}
 
-\addbibresource{biblio.bib}
+%\addbibresource{biblio.bib}
+\usepackage{subfiles}
+\usepackage{sweetspot}
 
-\input{glossary.gls}
-\input{acronyms.gls}
+%\input{glossary.gls}
+%\input{acronyms.gls}
 
 %\makeindex
-\makenoidxglossaries
-\usepackage[xindy]{imakeidx}
+%\makenoidxglossaries
+%\usepackage[xindy]{imakeidx}
 
 \author{Robert burner Schadek}
-\title{\LaTeX Sweetspot}
-\subtitle{The perfect \LaTeX book template}
-
-\begin{document}
-\maketitle
-\phantomsection \label{toc}
-\addcontentsline{toc}{chapter}{Table of Concents}
-\tableofcontents
-
-\subfile{introduction}
+%\title{\LaTeX Sweetspot}
+%\subtitle{The perfect \LaTeX book template}
+%
+%\begin{document}
+%\maketitle
+%\phantomsection \label{toc}
+%\addcontentsline{toc}{chapter}{Table of Concents}
+%\tableofcontents
+%
+%\subfile{introduction}
 \subfile{physicalstructure}
-\subfile{logicalstructure}
+%\subfile{logicalstructure}
 
-\subfile{appendix}
+%\subfile{appendix}
 \end{document}
