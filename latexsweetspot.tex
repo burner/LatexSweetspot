@@ -1,15 +1,7 @@
 \documentclass[a4paper,openright,BCOR20mm]{scrbook}
 
 \input{preamble}
-
-\addbibresource{biblio.bib}
-
-\input{glossary.gls}
-\input{acronyms.gls}
-
-\makeindex
-\makenoidxglossaries
-\usepackage[xindy]{imakeidx}
+\input{config}
 
 \author{Robert burner Schadek}
 \title{\LaTeX Sweetspot}
@@ -21,9 +13,8 @@
 \addcontentsline{toc}{chapter}{Table of Concents}
 \tableofcontents
 
-\subfile{introduction}
-\subfile{physicalstructure}
-\subfile{logicalstructure}
-
+\input{introduction}
+\input{physicalstructure}
+\input{logicalstructure}
 \subfile{appendix}
 \end{document}
