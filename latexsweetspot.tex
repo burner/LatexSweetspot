@@ -8,7 +8,11 @@
 \subtitle{The perfect \LaTeX book template}
 
 \begin{document}
+\phantomsection \label{toc}
+\addcontentsline{toc}{chapter}{Title-page}
 \maketitle
+
+\cleardoublepage
 \phantomsection \label{toc}
 \addcontentsline{toc}{chapter}{Table of Concents}
 \tableofcontents
@@ -16,5 +20,5 @@
 \input{introduction}
 \input{physicalstructure}
 \input{logicalstructure}
-\subfile{appendix}
+\input{appendix}
 \end{document}
