@@ -1,6 +1,5 @@
 \usepackage{color}
 \usepackage{listings}
-\usepackage{sweetspot}
 \usepackage{standalone}
 
 \lstdefinelanguage{d}{
@@ -78,4 +77,42 @@
     #4
   \endlist
   };
+}
+
+\usepackage[acronym]{glossaries}
+\newcommand{\g}[1]{\gls{#1}}
+\newcommand{\G}[1]{\Gls{#1}}
+\newcommand{\gp}[1]{\glspl{#1}}
+\newcommand{\Gp}[1]{\Glspl{#1}}
+
+\usepackage{stringstrings}
+
+% replacing chapter, section .. paragraph with Chapter, Section will create
+% additionally create label of type sec:name_without_blanks
+\newcommand{\Chapter}[1]{\chapter{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Section}[1]{\section{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Subsection}[1]{\subsection{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Subsubection}[1]{\subsubsection{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Paragraph}[1]{\paragraph{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+
+\usepackage{hyperref}
+\usepackage{varioref}
+\usepackage{ifthen}
+
+% Awesome reference commands
+% \Rl = Reference Long (with page hint)
+% \Rs = Reference Short (without page hint)
+\newcommand{\Rl}[1]{\vref{#1}}
+\newcommand{\Rs}[1]{\autoref{#1}}
+\labelformat{section}{Section~#1}
+\labelformat{subsection}{Section~#1}
+\labelformat{figure}{Figure~#1}
+\labelformat{equation}{Equation~#1}
+\labelformat{listing}{Listing~#1}
+
+\addto\extrasenglish{%
+  \renewcommand{\chapterautorefname}{Chapter}%
+}
+\addto\extrasenglish{%
+  \renewcommand{\sectionautorefname}{Section}%
 }
