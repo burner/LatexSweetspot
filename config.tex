@@ -1,8 +1,141 @@
+\usepackage{color}
+\usepackage{listings}
+
+% This package allows us to figures and tex files separately
+\usepackage{standalone}
+
+\lstdefinelanguage{d}{
+	morekeywords={abstract,alias,align,asm,assert,auto,body,bool,break,byte,
+		case,cast,catch,cdouble,cent,cfloat,char,class,const,continue,creal,
+		dchar,debug,default,delegate,delete,deprecated,do,double,else,enum,
+		export,extern,false,final,finally,float,for,foreach,foreach_reverse,
+		function,goto,idouble,if,ifloat,immutable,import,in,inout,int,
+		interface,invariant,ireal,is,lazy,long,macro,mixin,module,new,nothrow,
+		null,out,override,package,pragma,private,protected,public,pure,real,
+		ref,return,scope,shared,short,static,struct,string,wstring,dstring,
+		super,switch,synchronized,template,this,throw,true,try,typedef,typeid,
+		typeof,ubyte,ucent,uint,ulong,union,unittest,ushort,version,void,
+		volatile,wchar,while,with,size_t,hash_t
+	},
+	sensitive=True,
+	morecomment=[l]{//},
+	morecomment=[s]{/\*}{\*/},
+	morestring=[b]"
+}
+
+\lstset{
+	language=d,
+	basicstyle=\footnotesize\ttfamily, % Standardschrift
+	numbers=left,               % Ort der Zeilennummern
+	numberstyle=\tiny,          % Stil der Zeilennummern
+	%stepnumber=2,               % Abstand zwischen den Zeilennummern
+	captionpos=b,
+	numbersep=5pt,              % Abstand der Nummern zum Text
+	tabsize=4,                  % Groesse von Tabs
+	extendedchars=true,         %
+	breaklines=true,            % Zeilen werden Umgebrochen
+	showspaces=false,           % Leerzeichen anzeigen ?
+	showtabs=false,             % Tabs anzeigen ?
+	%frame=b,
+	rulecolor=\color[cmyk]{0.0, 0.0, 0.0, 0.316},
+	xleftmargin=17pt,
+	%xleftmargin=0pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	keywordstyle=\color{blue},          % keyword style
+	commentstyle=\color{dkgreen},       % comment style
+	stringstyle=\color{mauve},         % string literal style
+	showstringspaces=false,    % Leerzeichen in Strings anzeigen ?        
+	escapeinside={/+}{+/},
+	title=\lstname
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[
+    backend=biber,
+    style=authoryear-icomp,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false, 
+    doi=true,
+    style=numeric,
+    eprint=false,
+	backref
+]{biblatex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{dtklogos}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,shadows}
+% Information boxes
+\newcommand*{\info}[4][16.3]{%
+  \node [ annotation, #3, scale=0.65, text width = #1em,
+          inner sep = 2mm ] at (#2) {%
+  \list{$\bullet$}{\topsep=0pt\itemsep=0pt\parsep=0pt
+    \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+    \itemindent=0pt\labelsep=2pt}%
+    #4
+  \endlist
+  };
+}
+
+% because typing gls takes to long
+\usepackage[acronym]{glossaries}
+\newcommand{\g}[1]{\gls{#1}}
+\newcommand{\G}[1]{\Gls{#1}}
+\newcommand{\gp}[1]{\glspl{#1}}
+\newcommand{\Gp}[1]{\Glspl{#1}}
+
+\usepackage{stringstrings}
+
+% replacing chapter, section .. paragraph with Chapter, Section will create
+% additionally create label of type sec:name_without_blanks
+\newcommand{\Chapter}[1]{\chapter{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Section}[1]{\section{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Subsection}[1]{\subsection{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Subsubection}[1]{\subsubsection{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+\newcommand{\Paragraph}[1]{\paragraph{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
+
+\usepackage{hyperref}
+\usepackage{varioref}
+\usepackage{ifthen}
+
+% Awesome reference commands
+% \Rl = Reference Long (with page hint)
+% \Rs = Reference Short (without page hint)
+\newcommand{\Rl}[1]{\vref{#1}}
+\newcommand{\Rs}[1]{\autoref{#1}}
+\labelformat{section}{Section~#1}
+\labelformat{subsection}{Section~#1}
+\labelformat{figure}{Figure~#1}
+\labelformat{equation}{Equation~#1}
+\labelformat{listing}{Listing~#1}
+
+\addto\extrasenglish{%
+  \renewcommand{\chapterautorefname}{Chapter}%
+}
+\addto\extrasenglish{%
+  \renewcommand{\sectionautorefname}{Section}%
+}
+
+\usepackage{amsmath}
+\usepackage[standard,amsmath]{ntheorem}
+\numberwithin{Theorem}{chapter}
+\numberwithin{Definition}{chapter}
+
+% Bibliography file
 \addbibresource{biblio.bib}
 
+% Glossary file
 \input{glossary.gls}
+
+% Acronym file
 \input{acronyms.gls}
 
+% Building the indices
 \makeindex
 \makenoidxglossaries
 \usepackage[xindy]{imakeidx}
+
