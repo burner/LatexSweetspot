@@ -67,6 +67,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{dtklogos}
+\usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{mindmap,shadows}
 % Information boxes
@@ -98,20 +99,109 @@
 \newcommand{\Subsubection}[1]{\subsubsection{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
 \newcommand{\Paragraph}[1]{\paragraph{#1} \caselower[e]{#1} \noblanks[e]{\thestring} \label{sec:\thestring}}
 
+\usepackage[english]{babel}
+\usepackage[english]{varioref}
 \usepackage{hyperref}
-\usepackage{varioref}
+\usepackage[english]{cleveref}
 \usepackage{ifthen}
+
+\makeatletter
+\newcommand*\ifcounter[1]{%
+  \ifcsname c@#1\endcsname
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+\makeatother
+
+\makeatletter
+\def\cref@old@@vpageref#1[#2]#3{%
+    \leavevmode%\unskip  <<<
+    \global\advance\c@vrcnt\@ne%
+    \vref@pagenum\@tempa{\the\c@vrcnt @vr}%
+    \vref@pagenum\@tempb{\the\c@vrcnt @xvr}%
+    %\vref@label{\the\c@vrcnt @xvr}%  <<<
+    \ifx\@tempa\@tempb\else%
+      \vref@err{\noexpand\vref or \noexpand\vpageref at page boundary
+                \@tempb-\@tempa\space (may loop)%
+                }%
+    \fi%
+    \vrefpagenum\thevpagerefnum{#3}%
+    \vref@space%
+    \ifx\@tempa\thevpagerefnum%
+      \def\@tempc{#1}%
+      \ifx\@tempc\@empty%
+         \unskip%
+      \else%
+         #1%
+      \fi%
+    \else%
+      #2%
+      \is@pos@number\thevpagerefnum%
+         {%
+          \is@pos@number\@tempa%
+           {\@tempcnta\@tempa%
+            \advance\@tempcnta\@ne%
+           }%
+           {\@tempcnta\maxdimen}%
+          \ifnum \thevpagerefnum =\@tempcnta%
+           \ifodd\@tempcnta%
+             \if@twoside%
+               \reftextfaceafter%
+             \else%
+               \reftextafter%
+             \fi%
+           \else%
+             \reftextafter%
+           \fi%
+          \else%
+            \advance\@tempcnta-2 %  <--- there was a space missing here!
+            \ifnum \thevpagerefnum =\@tempcnta%
+              \ifodd\@tempcnta%
+                \reftextbefore%
+              \else%
+                \if@twoside%
+                  \reftextfacebefore%
+                \else%
+                  \reftextbefore%
+                \fi%
+              \fi%
+            \else%
+              \reftextfaraway{#3}%
+            \fi%
+          \fi%
+         }%
+         {\reftextfaraway{#3}}%
+    \fi%
+    \vref@label{\the\c@vrcnt @xvr}%  <<<
+    \vref@label{\the\c@vrcnt @vr}%
+  }%
+\makeatother
+
+\creflabelformat{equation}{#2#1#3}
 
 % Awesome reference commands
 % \Rl = Reference Long (with page hint)
 % \Rs = Reference Short (without page hint)
-\newcommand{\Rl}[1]{\vref{#1}}
-\newcommand{\Rs}[1]{\autoref{#1}}
-\labelformat{section}{Section~#1}
-\labelformat{subsection}{Section~#1}
-\labelformat{figure}{Figure~#1}
-\labelformat{equation}{Equation~#1}
-\labelformat{listing}{Listing~#1}
+\newcommand{\Rl}[1]{%
+\ifcounter{longrefexists#1}{\cref{#1}}{\newcounter{longrefexists#1}\vref{#1}}%
+}
+%\newcommand{\Rl}[1]{\cref{#1}}
+\newcommand{\Rs}[1]{\cref{#1}}
+%\labelformat{section}{Section~#1}
+%\labelformat{subsection}{Section~#1}
+%\labelformat{figure}{Figure~#1}
+%\labelformat{equation}{Equation~#1}
+%\labelformat{listing}{Listing~#1}
+%\labelformat{table}{Table~#1}
+\crefname{figure}{Figure}{Figures}
+\crefname{section}{Section}{Sections}
+\crefname{paragraph}{Paragraph}{Paragraphs}
+\crefname{table}{Table}{Tables}
+\crefname{equation}{Equation}{Equations}
+\crefname{algorithm}{Algorithm}{Algorithms}
+\crefname{theorem}{Theorem}{Theorems}
 
 \addto\extrasenglish{%
   \renewcommand{\chapterautorefname}{Chapter}%
@@ -119,14 +209,6 @@
 \addto\extrasenglish{%
   \renewcommand{\sectionautorefname}{Section}%
 }
-
-\usepackage{amsmath}
-\usepackage[standard,amsmath]{ntheorem}
-\numberwithin{Theorem}{chapter}
-\numberwithin{Definition}{chapter}
-
-% Bibliography file
-\addbibresource{biblio.bib}
 
 % Glossary file
 \input{glossary.gls}
