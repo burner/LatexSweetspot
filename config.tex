@@ -1,5 +1,8 @@
 \usepackage{color}
 \usepackage{listings}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\newtheorem{defn}{Definition}[section]
 
 % This package allows us to figures and tex files separately
 \usepackage{standalone}
@@ -221,3 +224,12 @@
 \makenoidxglossaries
 \usepackage[xindy]{imakeidx}
 
+\newcommand{\listtheorems}{
+\renewcommand{\listtheoremname}{List of Theorems}%
+\listoftheorems[ignoreall,show={theorems}]
+}
+
+\newcommand{\listdefinitions}{
+\renewcommand{\listtheoremname}{List of Definitions}%
+\listoftheorems[ignoreall,show={defn}]
+}
