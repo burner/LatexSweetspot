@@ -1,5 +1,23 @@
 \newacronym{ctfe}{CTFE}{compile time function execution}
 \newacronym{csv}{csv}{comma separated values}
 \newacronym{xml}{XML}{extensible markup language}
-\newacronym{ps}{PhySt}{physical structure}
-\newacronym{ls}{LogSt}{logical structure}
+\newacronym{rowa}{ROWA}{Read-One/Write-All}
+\newacronym{wv}{WV}{Weighted Voting}
+\newacronym{mcs}{MYC}{Majority Consensus}
+\newacronym{ocs}{1SR}{one-copy serializability}
+\newacronym{mlv}{MLV}{Multi Level Voting}
+\newacronym{tl}{TL}{Triangle Lattice}
+\newacronym{gtq}{GTQ}{generalized tree quorum}
+\newacronym{mc}{MC}{MidCir}
+\newacronym{qw}{QW}{write quorum}
+\newacronym{qr}{QR}{read quorum}
+\newacronym{ll}{LL}{logical level}
+\newacronym[longplural={physical network topologies}]{pnt}{PNT}{physical network topology}
+\newacronym[longplural={logical topologies}]{lt}{LT}{logical topology}
+\newacronym[longplural={logical network topologies}]{lnt}{LNT}{logical network topology}
+\newacronym{uqp}{UQP}{unstructured quorum protocol}
+\newacronym{sqp}{SQP}{structured quorum protocol}
+\newacronym{fns}{FNS}{Factorial Number System}
+\newacronym{qp}{QP}{quorum protocol}
+\newacronym{npc}{NPC}{node placement combination}
+\newacronym{gs}{GS}{graph structure}
