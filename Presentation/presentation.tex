@@ -1,0 +1,108 @@
+\documentclass[xelatex,12pt]{beamer}
+
+\makeindex
+\newenvironment{theindex}
+ {\let\item\par
+  %definitions for subitem etc
+  }{}
+\newcommand\indexspace{}
+
+\usetheme{metropolis}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[acronym]{glossaries}
+% Glossary file
+\input{glossary.gls}
+
+% Acronym file
+\input{acronyms.gls}
+
+% Building the indices
+\makeindex
+\makenoidxglossaries
+\usepackage[xindy]{imakeidx}
+
+\lstdefinelanguage{d}{
+	morekeywords={abstract,alias,align,asm,assert,auto,body,bool,break,byte,
+		case,cast,catch,cdouble,cent,cfloat,char,class,const,continue,creal,
+		dchar,debug,default,delegate,delete,deprecated,do,double,else,enum,
+		export,extern,false,final,finally,float,for,foreach,foreach_reverse,
+		function,goto,idouble,if,ifloat,immutable,import,in,inout,int,
+		interface,invariant,ireal,is,lazy,long,macro,mixin,module,new,nothrow,
+		null,out,override,package,pragma,private,protected,public,pure,real,
+		ref,return,scope,shared,short,static,struct,string,wstring,dstring,
+		super,switch,synchronized,template,this,throw,true,try,typedef,typeid,
+		typeof,ubyte,ucent,uint,ulong,union,unittest,ushort,version,void,
+		volatile,wchar,while,with,size_t,hash_t,__traits
+	},
+	sensitive=True,
+	morecomment=[l]{//},
+	morecomment=[s]{/\*}{\*/},
+	morestring=[b]"
+}
+
+\lstdefinestyle{dlang}{
+	language=d,
+	basicstyle=\tiny\ttfamily, % Standardschrift
+	numbers=left,               % Ort der Zeilennummern
+	numberstyle=\tiny,          % Stil der Zeilennummern
+	%stepnumber=2,               % Abstand zwischen den Zeilennummern
+	captionpos=b,
+	numbersep=5pt,              % Abstand der Nummern zum Text
+	tabsize=4,                  % Groesse von Tabs
+	extendedchars=true,         %
+	breaklines=true,            % Zeilen werden Umgebrochen
+	showspaces=false,           % Leerzeichen anzeigen ?
+	showtabs=false,             % Tabs anzeigen ?
+	%frame=b,
+	rulecolor=\color[cmyk]{0.0, 0.0, 0.0, 0.316},
+	xleftmargin=17pt,
+	%xleftmargin=0pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	keywordstyle=\color{blue},          % keyword style
+	commentstyle=\color{dkgreen},       % comment style
+	stringstyle=\color{red},         % string literal style
+	showstringspaces=false,    % Leerzeichen in Strings anzeigen ?        
+	escapeinside={/+}{+/},
+	title=\lstname,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+
+\begin{document}
+\section{Introduction}
+\begin{frame}{Why you should give a **** about the Dlang}
+	\begin{itemize}
+		\item Easy to get into
+		\item Expressiv 
+		\item Clear
+		\item Very Fast Turnaround Time
+		\item Think, Python had a Baby with C++23 that was raised by Haskell at
+			Matlab.
+	\end{itemize}
+\end{frame}
+\begin{frame}{Features and Properties}
+	\begin{itemize}
+		\item C Style Syntax
+		\item Java Style Class
+		\item Modules (f*** Headers)
+		\item Templates that just make sense
+		\item \gls{ctfe}
+		\item mixins
+		\item traits
+		\item Ranges
+		\item Slices
+		\item Build in Unit testing Facilities
+		\item Powerful Standard Library
+		\item ...
+	\end{itemize}
+\end{frame}
+
+\section{Enough Talking}
+\begin{frame}{Some Examples}
+	%\lstinputlisting[style=dlang]{example1.d}
+	\begin{lstlisting}[style=dlang]
+		int main() {}	
+	\end{lstlisting}
+\end{frame}
+\end{document}
