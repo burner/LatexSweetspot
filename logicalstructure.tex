@@ -9,13 +9,16 @@ Additionally, the indention of there order is described.
 Take a look at \Rl{fig:figure1}.
 
 \Section{Definitions}
-\begin{defn}[\g{pnt}]
+\begin{defn}[\glsfirst{pnt}]
 	A \g{pnt} is a \g{gs} found in the real world.
 \end{defn}
 
 \begin{algorithm}
 \begin{algorithmic}
-	\State Foo
+\Procedure{AreNodesConnected}{$nodes, GS$}
+   \State \(x \leftarrow 1\)
+   \Return \(\forall n,n' \in nodes : \exists \langle n, \dots, n' \rangle \in GS\)
+\EndProcedure
 \end{algorithmic}
 \end{algorithm}
 \end{document}
