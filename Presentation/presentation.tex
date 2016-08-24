@@ -17,6 +17,10 @@
 % Acronym file
 \input{acronyms.gls}
 
+\usepackage{xcolor}
+\definecolor{mauve}{rgb}{0.86, 0.82, 1.0}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+
 % Building the indices
 \makeindex
 \makenoidxglossaries
@@ -43,7 +47,7 @@
 
 \lstdefinestyle{dlang}{
 	language=d,
-	basicstyle=\tiny\ttfamily, % Standardschrift
+	basicstyle=\scriptsize\ttfamily, % Standardschrift
 	numbers=left,               % Ort der Zeilennummern
 	numberstyle=\tiny,          % Stil der Zeilennummern
 	%stepnumber=2,               % Abstand zwischen den Zeilennummern
@@ -56,10 +60,11 @@
 	showtabs=false,             % Tabs anzeigen ?
 	%frame=b,
 	rulecolor=\color[cmyk]{0.0, 0.0, 0.0, 0.316},
-	xleftmargin=17pt,
+	xleftmargin=-10pt,
+	xrightmargin=-25pt,
 	%xleftmargin=0pt,
-	framexleftmargin=17pt,
-	framexrightmargin=5pt,
+	framexleftmargin=-10pt,
+	framexrightmargin=-25pt,
 	framexbottommargin=4pt,
 	keywordstyle=\color{blue},          % keyword style
 	commentstyle=\color{dkgreen},       % comment style
@@ -68,6 +73,7 @@
 	escapeinside={/+}{+/},
 	title=\lstname,
     postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
 
 \begin{document}
 \section{Introduction}
@@ -100,9 +106,6 @@
 
 \section{Enough Talking}
 \begin{frame}{Some Examples}
-	%\lstinputlisting[style=dlang]{example1.d}
-	\begin{lstlisting}[style=dlang]
-		int main() {}	
-	\end{lstlisting}
+	\lstinputlisting[style=dlang]{example1.d}
 \end{frame}
 \end{document}
