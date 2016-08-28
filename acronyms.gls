@@ -21,3 +21,4 @@
 \newacronym{npc}{NPC}{node placement combination}
 \newacronym{gs}{GS}{graph structure}
 \newacronym{ctfe}{CTFE}{Compile Time Function Execution}
+\newacronym{dlang}{DLang}{D Programming Language}

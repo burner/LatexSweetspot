@@ -1,4 +1,7 @@
 \usepackage{color}
+\usepackage{xcolor}
+\definecolor{mauve}{rgb}{0.86, 0.82, 1.0}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
 \usepackage{listings}
 \usepackage{algorithm}
 \usepackage{algpseudocode}  
@@ -29,7 +32,7 @@
 	morestring=[b]"
 }
 
-\lstset{
+\lstdefinestyle{dlang}{
 	language=d,
 	basicstyle=\footnotesize\ttfamily, % Standardschrift
 	numbers=left,               % Ort der Zeilennummern
@@ -44,17 +47,19 @@
 	showtabs=false,             % Tabs anzeigen ?
 	%frame=b,
 	rulecolor=\color[cmyk]{0.0, 0.0, 0.0, 0.316},
-	xleftmargin=17pt,
+	xleftmargin=+10pt,
+	xrightmargin=-00pt,
 	%xleftmargin=0pt,
-	framexleftmargin=17pt,
-	framexrightmargin=5pt,
+	framexleftmargin=-00pt,
+	framexrightmargin=-00pt,
 	framexbottommargin=4pt,
 	keywordstyle=\color{blue},          % keyword style
 	commentstyle=\color{dkgreen},       % comment style
-	stringstyle=\color{mauve},         % string literal style
+	stringstyle=\color{red},         % string literal style
 	showstringspaces=false,    % Leerzeichen in Strings anzeigen ?        
 	escapeinside={/+}{+/},
-	title=\lstname
+	caption=\lstname,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
 }
 
 \usepackage[english]{babel}
@@ -193,6 +198,16 @@
 \newcommand{\Rl}[1]{%
 \ifcounter{longrefexists#1}{\cref{#1}}{\newcounter{longrefexists#1}\vref{#1}}%
 }
+\newcommand{\Sl}[2]{%
+\ifcounter{longrefexistsline#1}%
+	{line \cref{#2} in \cref{#1#2}}%
+	{\newcounter{longrefexists#1#2}line \cref{#2} in \cref{#1}}%
+}
+\newcommand{\SL}[2]{%
+\ifcounter{longrefexistsline#1#2}%
+	{Line \cref{#2} in \cref{#1}}%
+	{\newcounter{longrefexists#1#2}Line \cref{#2} in \cref{#1}}%
+}
 %\newcommand{\Rl}[1]{\cref{#1}}
 \newcommand{\Rs}[1]{\cref{#1}}
 %\labelformat{section}{Section~#1}
@@ -208,6 +223,7 @@
 \crefname{equation}{Equation}{Equations}
 \crefname{algorithm}{Algorithm}{Algorithms}
 \crefname{theorem}{Theorem}{Theorems}
+\crefname{listing}{Listing}{Listings}
 
 \addto\extrasenglish{%
   \renewcommand{\chapterautorefname}{Chapter}%
