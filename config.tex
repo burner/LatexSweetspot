@@ -198,24 +198,10 @@
 \newcommand{\Rl}[1]{%
 \ifcounter{longrefexists#1}{\cref{#1}}{\newcounter{longrefexists#1}\vref{#1}}%
 }
-\newcommand{\Sl}[2]{%
-\ifcounter{longrefexistsline#1}%
-	{line \cref{#2} in \cref{#1#2}}%
-	{\newcounter{longrefexists#1#2}line \cref{#2} in \cref{#1}}%
-}
-\newcommand{\SL}[2]{%
-\ifcounter{longrefexistsline#1#2}%
-	{Line \cref{#2} in \cref{#1}}%
-	{\newcounter{longrefexists#1#2}Line \cref{#2} in \cref{#1}}%
-}
-%\newcommand{\Rl}[1]{\cref{#1}}
 \newcommand{\Rs}[1]{\cref{#1}}
-%\labelformat{section}{Section~#1}
-%\labelformat{subsection}{Section~#1}
-%\labelformat{figure}{Figure~#1}
-%\labelformat{equation}{Equation~#1}
-%\labelformat{listing}{Listing~#1}
-%\labelformat{table}{Table~#1}
+\newcommand{\LineRef}[2]{%
+	\cref{#2} in \cref{#1}%
+}
 \crefname{figure}{Figure}{Figures}
 \crefname{section}{Section}{Sections}
 \crefname{paragraph}{Paragraph}{Paragraphs}
@@ -224,6 +210,7 @@
 \crefname{algorithm}{Algorithm}{Algorithms}
 \crefname{theorem}{Theorem}{Theorems}
 \crefname{listing}{Listing}{Listings}
+\crefname{line}{Line}{Lines}
 
 \addto\extrasenglish{%
   \renewcommand{\chapterautorefname}{Chapter}%
