@@ -14,8 +14,21 @@ Take a look at \Rl{fig:figure1}.
 \cleardoublepage
 \section{Figures}
 \begin{figure}[h]
-	\includestandalone[width=\textwidth]{figure1}
+	\includestandalone[width=\textwidth]{figures/figure1}
 	\caption{A Figure created with Tikz}
 	\label{fig:figure1}
 \end{figure}
+
+A reference to \Rl{tab:programminglanguagecmp}.
+
+\section{Tables}
+\begin{table}[h]
+\begin{tabular}{l | c c c}
+Language & Low Level & High Level & Awesomeness \\ \hline
+DLang & ++ & ++ & ++ \\
+C++ & ++ & + & --
+\end{tabular}
+\caption{A Comprehensive Programming Language Comparison}
+\label{tab:programminglanguagecmp}
+\end{table}
 \end{document}
